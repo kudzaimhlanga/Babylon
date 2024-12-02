@@ -13,7 +13,7 @@ window.addEventListener('load', () => {
 		const path = embed.querySelector('.pathToDraw').cloneNode(true);
 		embed.querySelector('svg').innerHTML = '';
 
-		for (let i = 0; i < 8; i++) {
+		for (let i = 0; i < 12; i++) {
 			const newPath = path.cloneNode(true);
 			embed.querySelector('svg').appendChild(newPath);
 		}
@@ -22,7 +22,7 @@ window.addEventListener('load', () => {
 	function animateStrokes(embed) {
 		createPaths(embed);
 		const paths = [...embed.querySelectorAll('.pathToDraw')];
-		const duration = 15;
+		const duration = 50;
 
 		const tl = new gsap.timeline({
 			defaults: {
@@ -32,15 +32,26 @@ window.addEventListener('load', () => {
 			},
 		});
 
-		console.log(paths);
+		// console.log(paths);
 
-		tl.fromTo(paths[0], { drawSVG: '0% 2%' }, { drawSVG: '100% 102%' })
-			.fromTo(paths[1], { drawSVG: '5% 10%' }, { drawSVG: '105% 110%' }, '<')
-			.fromTo(paths[2], { drawSVG: '20% 35%' }, { drawSVG: '120% 135%' }, '<')
-			.fromTo(paths[3], { drawSVG: '38% 44%' }, { drawSVG: '138% 144%' }, '<')
-			.fromTo(paths[4], { drawSVG: '55% 65%' }, { drawSVG: '155% 165%' }, '<')
-			.fromTo(paths[5], { drawSVG: '70% 75%' }, { drawSVG: '170% 175%' }, '<')
-			.fromTo(paths[6], { drawSVG: '80% 90%' }, { drawSVG: '180% 190%' }, '<')
-			.fromTo(paths[7], { drawSVG: '95% 100%' }, { drawSVG: '195% 200%' }, '<');
+		//longt paths
+		tl.fromTo(paths[0], { drawSVG: '0% 10%' }, { drawSVG: '100% 110%' })
+		.fromTo(paths[1], { drawSVG: '13% 23%' }, { drawSVG: '113% 123%' }, "<")
+		.fromTo(paths[2], { drawSVG: '26% 36%' }, { drawSVG: '126% 136%' }, "<")
+
+		//short mid short
+		.fromTo(paths[3], { drawSVG: '39% 42%' }, { drawSVG: '139% 142%' }, "<")
+		.fromTo(paths[4], { drawSVG: '45% 50%' }, { drawSVG: '145% 150%' }, "<")
+		.fromTo(paths[5], { drawSVG: '53% 56%' }, { drawSVG: '153% 156%' }, "<")
+
+		// mid mid v short mid short
+		.fromTo(paths[6], { drawSVG: '59% 64%' }, { drawSVG: '159% 164%' }, "<")
+		.fromTo(paths[7], { drawSVG: '67% 72%' }, { drawSVG: '167% 172%' }, "<")
+		.fromTo(paths[8], { drawSVG: '75% 76%' }, { drawSVG: '175% 176%' }, "<")
+		.fromTo(paths[9], { drawSVG: '79% 84%' }, { drawSVG: '179% 184%' }, "<")
+		.fromTo(paths[10], { drawSVG: '87% 90%' }, { drawSVG: '187% 190%' }, "<")
+		.fromTo(paths[11], { drawSVG: '93% 97%' }, { drawSVG: '193% 197%' }, "<")
+
+
 	}
 });
