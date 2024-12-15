@@ -25,10 +25,4 @@ function runAnim() {
 	tl.to([...dots, dotThree], { y: '-1200%', stagger: { each: 0.25 } })
 		.from(dotTwo, { marginBottom: 0, delay: 1 }, '<')
 		.to(dotFour, { x: '-5800%', delay: 2 }, '<');
-
-    window.addEventListener("resize", () => {
-        if(window.innerWidth < 992){
-            tl.kill();
-        }
-    })
 }
