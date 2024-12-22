@@ -12,9 +12,9 @@ window.addEventListener('DOMContentLoaded', () => {
 			opacity: 0,
 			duration: 0.5,
 			ease: 'power2.out',
-            stagger: {
-                each: 0.05
-            }
+			stagger: {
+				each: 0.05,
+			},
 		});
 	}
 });

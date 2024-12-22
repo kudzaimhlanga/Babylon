@@ -1,9 +1,18 @@
 window.addEventListener('load', () => {
+	gsap.registerPlugin(ScrollTrigger);
+
 	const videoEmbeds = [...document.querySelectorAll('.video-embed')];
 
 	if (videoEmbeds.length > 0) {
 		videoEmbeds.forEach((embed) => {
-			playVideo(embed);
+			ScrollTrigger.create({
+				trigger: embed,
+				start: 'top 70%',
+				onEnter: () => {
+					playVideo(embed);
+				},
+			});
+
 			embed.addEventListener('mouseenter', () => {
 				playVideo(embed);
 			});
