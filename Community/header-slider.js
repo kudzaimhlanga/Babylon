@@ -5,6 +5,10 @@ window.addEventListener('load', () => {
 		effect: 'slide',
 		keyboard: true,
 		loop: true,
+		autoplay: {
+			delay: 10000,
+			pauseOnMouseEnter: true,
+		},
 		pagination: {
 			el: '.community-header_pagination',
 			type: 'bullets',
@@ -28,5 +32,24 @@ window.addEventListener('load', () => {
                 `;
 			},
 		},
+	});
+
+	const slides = swiper.slides;
+
+	swiper.on('slideNextTransitionEnd', function () {
+		const filtered = slides.filter((n) =>
+			n.classList.contains('swiper-slide-active')
+		);
+
+		slides.forEach((slide) => {
+			const iframe = slide.querySelector('iframe');
+			iframe.src = '';
+		});
+
+		filtered.forEach((slide) => {
+			const src = slide.dataset.embedUrl;
+			const iframe = slide.querySelector('iframe');
+			iframe.src = src;
+		});
 	});
 });
